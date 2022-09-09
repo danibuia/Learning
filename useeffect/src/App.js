@@ -1,25 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import { Fragment, useEffect , useState } from "react";
 
-function App() {
+const App = () => {
+
+  const [count,setCount]=useState(0);
+  const [displayBox,setDisplayBox]=useState(false);
+
+  const handleIncrease=() => {
+    return setCount(count+1);
+  }
+  const handleDecrease=() => {
+    return setCount(count-1);
+  }
+  
+  const handleDisplay=() => {
+    return setDisplayBox(!displayBox);
+  }
+
+  useEffect(() => {
+    console.log("Count", count);
+  },[count]);
+
+  useEffect(() => {
+    console.log("Display", displayBox);
+  },[displayBox]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+
+      <button onClick={handleIncrease}>
+        Increase
+      </button>
+      <button onClick={handleDecrease}>
+        Increase
+      </button>
+
+      <button onClick={handleDisplay}>
+        Display
+      </button>
+
+
+    </Fragment>
   );
-}
+};
 
 export default App;
