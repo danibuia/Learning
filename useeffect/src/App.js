@@ -4,18 +4,19 @@ import { Fragment, useEffect , useState } from "react";
 
 const App = () => {
 
-  const [count,setCount]=useState(0);
-  const [displayBox,setDisplayBox]=useState(false);
+  const [count,setCount]=useState("");
+  const [displayBox,setDisplayBox]=useState("");
 
   const handleIncrease=() => {
     return setCount(count+1);
   }
   const handleDecrease=() => {
-    return setCount(count-1);
+    console.log(handleDecrease)
+  return setCount(count-1);
   }
   
   const handleDisplay=() => {
-    return setDisplayBox(!displayBox);
+  return setDisplayBox(!displayBox);
   }
 
   useEffect(() => {
@@ -26,6 +27,7 @@ const App = () => {
     console.log("Display", displayBox);
   },[displayBox]);
 
+
   return (
     <Fragment>
 
@@ -35,11 +37,16 @@ const App = () => {
       <button onClick={handleDecrease}>
         Increase
       </button>
-
+      <p>
+      {count}
+      
+      </p>
+    
       <button onClick={handleDisplay}>
         Display
       </button>
-
+    
+    
 
     </Fragment>
   );

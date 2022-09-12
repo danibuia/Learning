@@ -9,8 +9,7 @@ const Home = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
  
-
-
+    
     const onLogin = () => {
 
         axios.post("https://smartboxdigital-academy-be.herokuapp.com/SBD-Academy/api/admins/login", {
