@@ -1,1 +1,1 @@
-export const baseUrl = "https://smartboxdigital-academy-be.herokuapp.com/SBD-Academy/api"
+export const baseUrl = "http://127.0.0.1:5050/SBD-Academy/api"
