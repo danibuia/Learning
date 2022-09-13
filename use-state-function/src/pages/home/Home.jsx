@@ -50,12 +50,13 @@ const Home = () => {
         console.log("error: ", error);
       });
   };
+
   useEffect(() => {
     handleMembers();
   }, []);
   return (
     <>
-      <h2>Home (Public). Hi ,{data[8]?.firstName } !</h2>
+      <h2>Home (Public). Hi{data[8]?.firstName } !</h2>
       <div>
         <form
           style={{
@@ -75,14 +76,14 @@ const Home = () => {
           />
           <label htmlFor="Password">Password</label>
           <input
-            type="passwod"
+            type="password"
             id="password"
             name="password"
             placeholder="Password"
             onChange={handlePassword}
           />
         </form>
-        <button type="button" onClick={onLogin} disabled={false}>
+        <button type="button" onClick={() => onLogin()} disabled={false}>
           Sign In
         </button>
       </div>
@@ -90,3 +91,8 @@ const Home = () => {
   );
 };
 export default Home;
+
+//axios,post ("url",{object}, {headers:{'Autorization':'Bearer..' }})then
+
+
+//verificarea requesturilor

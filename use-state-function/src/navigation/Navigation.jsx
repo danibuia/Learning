@@ -12,7 +12,6 @@ const Navigation = () => {
     setToken();
     return window.localStorage.removeItem('token');
   }
-
   useEffect(()=>{
     setToken(window.localStorage.getItem('token'));
   }, [token]);
@@ -22,6 +21,11 @@ const Navigation = () => {
       <NavLink to="/home">Home</NavLink>
       <NavLink to="/dashboard">Dashboard</NavLink>
       <NavLink to="/admin">Admin</NavLink>
+      <NavLink to="/table">Table</NavLink>
+
+     
+
+
       {token && (
         <button type="button" onClick={(onLogout)}>Sign out</button>
         )}
