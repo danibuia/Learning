@@ -2,22 +2,26 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { baseUrl } from "../home/constants/Constants";
 
-function Register() {
+function AddMember() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [phone, setPhone] = useState("");
   const [accessToken, setAccessToken] = useState('');
-  const onRegister = () => {
+  const [linkedIn, setlinkedIn ]=useState('');
+  const [position, setPosition ]=useState('');
+  const [facebook, setFacebook ]=useState('');
+
+  const addMember = () => {
     axios
-      .post(`${baseUrl}/admins/register`, {
+      .post(`${baseUrl}/guests/add-member`, {
         email: email,
-        password: password,
         firstName: firstName,
         lastName: lastName,
-        phone: phone,
-      })
+        position: position,
+        linkedIn: linkedIn,
+        facebook: facebook
+      },
+      {  headers: { Authorization: `Bearer ${accessToken}` }})
       .then((response) => {
         console.log("response ", response.data);
         window.localStorage.setItem("token", response.data.accessToken);
@@ -27,12 +31,11 @@ function Register() {
         console.log("error: ", error);
       });
   };
-  const postMembers = () => {
-    return accessToken.length > 0 ? onRegister() : null;
-}
+ 
+
 useEffect(() => {
     setAccessToken(window.localStorage.getItem("token"));
-    postMembers();
+  
     // eslint-disable-next-line 
 }, [accessToken])
 
@@ -64,54 +67,40 @@ useEffect(() => {
             placeholder="Last Name"
             onChange={(event) => setLastName(event.target.value)}
           />
-          <label htmlFor="PhoneNumber">Phone Number</label>
+          <label htmlFor="Position">Position</label>
           <input
             type="text"
-            id="PhoneNumber"
-            name="PhoneNumber"
-            placeholder="Phone Number"
-            onChange={(event) => setPhone(event.target.value)}
+            id="Position"
+            name="Position"
+            placeholder="Position"
+            onChange={(event) => setPosition(event.target.value)}
           />
-          <label htmlFor="Password">Password</label>
+          <label htmlFor="Position">LinkeIn</label>
           <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="Password"
-            onChange={(event) => setPassword(event.target.value)}
+            type="text"
+            id="LinkekIn"
+            name="LinkekIn"
+            placeholder="LinkekIn"
+            onChange={(event) => setlinkedIn(event.target.value)}
           />
+          <label htmlFor="Facebook">Facebook</label>
+          <input
+            type="text"
+            id="Facebook"
+            name="Facebook"
+            placeholder="Facebook"
+            onChange={(event) => setFacebook(event.target.value)}
+          />
+         
+         
+       
         </form>
        
-        <button type="button" onClick={onRegister} disabled={false}>
+        <button type="button" onClick={addMember} disabled={false}>
           Log in
         </button>
       </div>
     </>
   );
 }
-export default Register;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+export default AddMember;

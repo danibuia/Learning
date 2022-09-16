@@ -22,19 +22,24 @@ const UpdateMember = () => {
     }).catch((error) => {
         console.log('error: ', error);
     })
-}
+
 useEffect(() => {
     setAccessToken(window.localStorage.getItem("token"));
     patchMembers();
     // eslint-disable-next-line 
 }, [accessToken])
 
-return = () ={
+return (
+<>
+    <button onClick={patchMembers}></button>
 
-    <button onclick{UpdateMember}>
-    </button>
+</>
+
+)
+
+
+
 }
-
 
 
 export default UpdateMember;

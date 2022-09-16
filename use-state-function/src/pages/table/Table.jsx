@@ -17,7 +17,7 @@ const Table = () => {
     ];
 
     const handleMembers = () => {
-        axios.get(`${baseUrl}/admins/get-members/all`, {
+        axios.get(`${baseUrl}/guests/get-members/all`, {
             headers: { Authorization: `Bearer ${accessToken}` }
         }).then((response) => {
             console.log(response.data.members);
@@ -52,7 +52,13 @@ const Table = () => {
                 pageSize={5}
                 rowsPerPageOptions={[5]}
 
+
+            
+
+
             />
+            
+        
         </div>
        
         

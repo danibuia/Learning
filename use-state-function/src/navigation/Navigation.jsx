@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import {  NavLink , useNavigate } from "react-router-dom";
 import "./Navigation.css";
 
+
 const Navigation = () => {
   const navigate = useNavigate();
   const [token, setToken] = useState();
@@ -19,11 +20,16 @@ const Navigation = () => {
   return (
     <nav className={"nav-container"}>
       <NavLink to="/home">Home</NavLink>
-      <NavLink to="/dashboard">Dashboard</NavLink>
+      <NavLink to="/dashboard">DeleteMembers</NavLink>
       <NavLink to="/admin">Admin</NavLink>
       <NavLink to="/table">Table</NavLink>
+      <NavLink to="/inputs">Inputs</NavLink>
+      <NavLink to="/addMember">AddMember</NavLink>
+      <NavLink to="/blogs">Blogs</NavLink>
+      <NavLink to="/project">Project</NavLink>
 
-     
+
+
 
 
       {token && (

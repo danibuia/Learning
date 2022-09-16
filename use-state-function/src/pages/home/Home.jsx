@@ -86,6 +86,7 @@ const Home = () => {
         <button type="button" onClick={() => onLogin()} disabled={false}>
           Sign In
         </button>
+          <a href="/register">N-ai cont? fatz aici</a>
       </div>
     </>
   );
