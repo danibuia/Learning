@@ -13,6 +13,7 @@ import Blogs from '../../pages/blogs/Blogs';
 import AddBlog from '../../pages/blogs/addBlog/AddBlog';
 import DeleteMembers from '../../pages/deleteMember/DeleteMember';
 import Project from '../../pages/project/Project';
+import Editable from '../../pages/editable/Editable';
 
 const Routing = () => {
   return (
@@ -58,7 +59,9 @@ const Routing = () => {
         <Route path='/project' element={<ProtectedRoute>
           <Project />
         </ProtectedRoute>} />
-
+        <Route path='/editable' element={<ProtectedRoute>
+          <Editable />
+        </ProtectedRoute>} />
       </Routes>
     </>
   )

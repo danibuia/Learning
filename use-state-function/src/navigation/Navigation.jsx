@@ -27,6 +27,9 @@ const Navigation = () => {
       <NavLink to="/addMember">AddMember</NavLink>
       <NavLink to="/blogs">Blogs</NavLink>
       <NavLink to="/project">Project</NavLink>
+      <NavLink to="/editable">Editable</NavLink>
+
+
 
 
 

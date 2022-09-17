@@ -5,7 +5,12 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
+
+
+
 const ProjectCard = () =>{
+
+ 
   return (
     <Card sx={{ width: 300 }}>
       <CardContent>
@@ -18,11 +23,12 @@ const ProjectCard = () =>{
         <Typography sx={{ mb: 1.5 }} color="text.secondary">
           adjective
         </Typography>
-        <Typography variant="body2">
+        <Typography contentEditable={true} variant="body2">
           well meaning and kindly.
           <br />
           {'"a benevolent smile"'}
         </Typography>
+        <p contentEditable={true} >dfgd</p>
       </CardContent>
       <CardActions>
         <Button size="small">Learn More</Button>

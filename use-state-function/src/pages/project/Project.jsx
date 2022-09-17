@@ -1,8 +1,7 @@
 import React from 'react';
 import AddprojectButton from './addProject/addProjectButton/AddProjectButton';
-import ProjectCard from './addProject/addProjectCard/AddProjectCard';
-
 import { Grid } from '@mui/material';
+import ProjectCard from './addProject/addProjectCard/AddProjectCard';
 
 const Project = () => {
     return (
@@ -15,6 +14,7 @@ const Project = () => {
                  
                     </Grid>
                     <Grid item md={11}  sx={{ display: 'flex', justifyContent: 'center' }}>
+                        
                         <ProjectCard/>
                     </Grid>
                 
