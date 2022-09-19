@@ -13,7 +13,7 @@ function AddMember() {
 
   const addMember = () => {
     axios
-      .post(`${baseUrl}/guests/add-member`, {
+      .post(`${baseUrl}/admins/add-member`, {
         email: email,
         firstName: firstName,
         lastName: lastName,

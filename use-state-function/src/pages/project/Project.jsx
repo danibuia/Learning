@@ -1,21 +1,20 @@
 import React from 'react';
-import AddprojectButton from './addProject/addProjectButton/AddProjectButton';
 import { Grid } from '@mui/material';
-import ProjectCard from './addProject/addProjectCard/AddProjectCard';
+import AddProjectButton from './addProject/addProjectButton/AddProjectButton';
+import Table from '../table/Table';
 
 const Project = () => {
     return (
         <>
             
                 <Grid container sx={{ display: 'flex', justifyContent: 'center' }}>
-                    <Grid item md={1}>
-                    
-                    <AddprojectButton/>
-                 
+                    <Grid item md={3}>
+                    <AddProjectButton/>
+                   
                     </Grid>
-                    <Grid item md={11}  sx={{ display: 'flex', justifyContent: 'center' }}>
+                    <Grid item md={9}  sx={{ display: 'flex', justifyContent: 'center' }}>
                         
-                        <ProjectCard/>
+                        <Table/>
                     </Grid>
                 
                 </Grid>

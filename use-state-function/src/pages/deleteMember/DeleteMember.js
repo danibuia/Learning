@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-// import { Box } from "@mui/material";
 import axios from "axios";
 import { baseUrl } from "../home/constants/Constants";
+
+
 const DeleteMembers = () => {
   const [memberId, setMemberId] = useState(window.localStorage.getItem('memberId'));
   const [accessToken, setAccessToken] = useState("");
@@ -9,7 +10,7 @@ const DeleteMembers = () => {
   // axios.post('url', {body request / payload}, {headers: {Authorization: 'Bearer '}})
   const deleteMemberById = () => {
     axios
-      .delete(`${baseUrl}/admins/delete-member/${memberId}`, {
+      .delete(`${baseUrl}/admins/delete-member/all${memberId}`, {
         headers: { Authorization: `Bearer ${accessToken}` },
       })
       .then((response) => {
@@ -47,5 +48,6 @@ const DeleteMembers = () => {
       {message.length > 0 ? <p>{message}</p> : null}
     </form>
   );
+  
 };
 export default DeleteMembers;

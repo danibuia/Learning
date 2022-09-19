@@ -53,9 +53,6 @@ const Table = () => {
                 rowsPerPageOptions={[5]}
 
 
-            
-
-
             />
             
         
