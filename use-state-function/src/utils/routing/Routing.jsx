@@ -14,6 +14,7 @@ import AddBlog from '../../pages/blogs/addBlog/AddBlog';
 import DeleteMembers from '../../pages/deleteMember/DeleteMember';
 import Project from '../../pages/project/Project';
 import Editable from '../../pages/editable/Editable';
+import MyProfile from '../../pages/myProfile/MyProfile';
 
 const Routing = () => {
   return (
@@ -62,7 +63,11 @@ const Routing = () => {
         <Route path='/editable' element={<ProtectedRoute>
           <Editable />
         </ProtectedRoute>} />
+        <Route path='/myprofile' element={<ProtectedRoute>
+          <MyProfile />
+        </ProtectedRoute>} />
       </Routes>
+     
     </>
   )
 }

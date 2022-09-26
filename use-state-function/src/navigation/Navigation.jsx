@@ -20,7 +20,6 @@ const Navigation = () => {
   return (
     <nav className={"nav-container"}>
       <NavLink to="/home">Home</NavLink>
-      <NavLink to="/dashboard">DeleteMembers</NavLink>
       <NavLink to="/admin">Admin</NavLink>
       <NavLink to="/table">Table</NavLink>
       <NavLink to="/inputs">Inputs</NavLink>
@@ -28,6 +27,8 @@ const Navigation = () => {
       <NavLink to="/blogs">Blogs</NavLink>
       <NavLink to="/project">Project</NavLink>
       <NavLink to="/editable">Editable</NavLink>
+      <NavLink to="/myprofile">MyProfile</NavLink>
+
 
 
 

@@ -1,16 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { baseUrl } from "./constants/Constants";
-
-
 const Home = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [accessToken, setAccessToken] = useState(window.localStorage.getItem("token"))
   const [data, setData] = useState([])
-
-
-
   const handleEmail = (event) => {
     setEmail(event.target.value);
     console.log("value is:", event.target.value);
@@ -53,7 +48,7 @@ const Home = () => {
 
   useEffect(() => {
     handleMembers();
-  }, []);
+  }, );
   return (
     <>
       <h2>Home (Public). Hi{data[8]?.firstName } !</h2>

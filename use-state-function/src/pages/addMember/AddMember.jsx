@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { baseUrl } from "../home/constants/Constants";
 
-function AddMember() {
+function AddMember({addMember }) {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -11,27 +9,7 @@ function AddMember() {
   const [position, setPosition ]=useState('');
   const [facebook, setFacebook ]=useState('');
 
-  const addMember = () => {
-    axios
-      .post(`${baseUrl}/admins/add-member`, {
-        email: email,
-        firstName: firstName,
-        lastName: lastName,
-        position: position,
-        linkedIn: linkedIn,
-        facebook: facebook
-      },
-      {  headers: { Authorization: `Bearer ${accessToken}` }})
-      .then((response) => {
-        console.log("response ", response.data);
-        window.localStorage.setItem("token", response.data.accessToken);
-        // window.location.pathname = "/home";
-      })
-      .catch((error) => {
-        console.log("error: ", error);
-      });
-  };
- 
+
 
 useEffect(() => {
     setAccessToken(window.localStorage.getItem("token"));
@@ -91,13 +69,10 @@ useEffect(() => {
             placeholder="Facebook"
             onChange={(event) => setFacebook(event.target.value)}
           />
-         
-         
-       
         </form>
        
-        <button type="button" onClick={addMember} disabled={false}>
-          Log in
+        <button type="button" onClick={()=> addMember(email, firstName, lastName, linkedIn, facebook, position, accessToken)} disabled={false}>
+          Add member
         </button>
       </div>
     </>
