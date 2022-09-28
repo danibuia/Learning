@@ -1,12 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
-// import axios from 'axios';
-// import { baseUrl } from '../home/constants/Constants';
+import { getMembers } from '../../redux/actions/members/getMembers.js';
+import { useDispatch, useSelector } from "react-redux";
 
 
-const Table = ({handleMembers, updatedMembers}) => {
+const Table = (props) => {
+
+    const dispatch = useDispatch();
+    const membersFromRedux = useSelector(state => state.membersState)
+
+    const { setMemberIdProps } = props;
+
     const [members, setMembers] = useState([]);
     const [accessToken, setAccessToken] = useState();
+
     const columns = [
         { field: '_id', headerName: 'ID', width: 130 },
         { field: 'firstName', headerName: 'First name', width: 130 },
@@ -17,11 +24,13 @@ const Table = ({handleMembers, updatedMembers}) => {
     ];
 
     useEffect(() => {
-        setMembers(updatedMembers);
-    },[updatedMembers]);
+        setMembers(membersFromRedux?.members);
+        console.log('membersFromRedux: ', membersFromRedux)
+      }, [membersFromRedux])
 
     const handleMembersWithToken = () => {
-        return accessToken ? handleMembers(setMembers, accessToken) : null;
+        accessToken ? dispatch(getMembers(accessToken)) : setMembers([]);
+
     }
 
     useEffect(() => {
@@ -37,7 +46,10 @@ const Table = ({handleMembers, updatedMembers}) => {
                 columns={columns}
                 pageSize={5}
                 rowsPerPageOptions={[5]}
+                checkboxSelection
+                onCellClick={(details, event) => { event.target.checked === true ? setMemberIdProps(details.row._id) : setMemberIdProps('') }}
             />
+
         </div>
     );
 }

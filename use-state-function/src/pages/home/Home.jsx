@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { baseUrl } from "./constants/Constants";
+
 const Home = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -51,7 +52,7 @@ const Home = () => {
   }, );
   return (
     <>
-      <h2>Home (Public). Hi{data[8]?.firstName } !</h2>
+      <h2>Home (Public). Hi{data[0]?.firstName} !</h2>
       <div>
         <form
           style={{

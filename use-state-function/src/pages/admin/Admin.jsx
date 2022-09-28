@@ -7,7 +7,7 @@ const Admin = () => {
   return (
     <>
     <h1>Admin</h1>
-    <h3>lOGGED in as </h3>
+    <h3>lOGGED in as</h3>
     </>
   )
 }
