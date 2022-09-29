@@ -22,7 +22,7 @@ const Navigation = () => {
       <NavLink to="/home">Home</NavLink>
       <NavLink to="/admin">Admin</NavLink>
       <NavLink to="/inputs">Inputs</NavLink>
-      <NavLink to="/blogs">Blogs</NavLink>
+      <NavLink to="/posts">Posts</NavLink>
       <NavLink to="/project">Project</NavLink>
       <NavLink to="/editable">Editable</NavLink>
       <NavLink to="/myprofile">MyProfile</NavLink>

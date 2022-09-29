@@ -8,14 +8,15 @@ import axios from 'axios';
 import { baseUrl } from '../../home/constants/Constants';
 
 
-const BasicCard = () => {
+const PostCard = () => {
     const [posts, setPosts] = useState([]);
     const [accessToken, setAccessToken] = useState('');
     const card = [
 
     ]
 
-    const handlePosts = () => {
+    const handlePosts = (accessToken) => {
+      if (accessToken){
         axios.get(`${baseUrl}/admins/get-posts/all`, {
             headers: { Authorization: `Bearer ${accessToken}` }
         }).then((response) => {
@@ -28,13 +29,13 @@ const BasicCard = () => {
             });
              //async function - React hook useState - the setter for member where we will set the array for DataGrid as is expected on the columns const declared before;
            setPosts();
-             console.log("myData ", myData);
+             
 
         }).catch((error) => {
             console.log('error: ', error);
         })
     }
-
+  };
     const getPosts = () => {
         return accessToken.length > 0 ? handlePosts() : null;
     }
@@ -46,13 +47,13 @@ const BasicCard = () => {
 
   return (
     <Card sx={{ maxWidth: 345 }}>
-    <CardActionArea >
+    <CardActionArea card={card}>
       <CardMedia
         component="img"
         height="140"
         image="/static/images/cards/contemplative-reptile.jpg"
         alt="green iguana"
-        card={card}
+        
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
@@ -67,4 +68,4 @@ const BasicCard = () => {
   </Card>
 );
 }
-  export default BasicCard
+  export default PostCard;

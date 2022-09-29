@@ -22,7 +22,7 @@ export const getPostRequest = () => { // before axios call request
   }
 };
 
-export const gePostSuccess = (response) => { // status code 200
+export const getPostSuccess = (response) => { // status code 200
   return {
     type: GET_POSTS_SUCCESS,
     payload: response
@@ -40,20 +40,20 @@ export const getPostFailure = (error) => {
 // ADD
 export const addPostRequest = () => { // before axios call request
   return {
-      type: ADD_MEMBER_REQUEST
+      type: ADD_POST_REQUEST
   }
 }
 
 export const addPostSuccess = (response) => { // status code 201
   return {
-      type: ADD_MEMBER_SUCCESS,
+      type: ADD_POST_SUCCESS,
       payload: response
   }
 }
 
 export const addMemberFailure = (error) => { // status code 4XX
   return {
-      type: ADD_MEMBER_FAILURE,
+      type: ADD_POST_FAILURE,
       payload: error
   }
 }
