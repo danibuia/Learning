@@ -1,30 +1,28 @@
-//GET
+// GET
 export const GET_MEMBERS_REQUEST = 'GET_MEMBERS_REQUEST';
 export const GET_MEMBERS_SUCCESS = 'GET_MEMBERS_SUCCESS';
-export const GET_MEMBERS_FAILURE = 'GET_MEMBER_FAILURE';
+export const GET_MEMBERS_FAILURE = 'GET_MEMBERS_FAILURE';
 
-//ADD
+// ADD
 export const ADD_MEMBER_REQUEST = 'ADD_MEMBER_REQUEST';
 export const ADD_MEMBER_SUCCESS = 'ADD_MEMBER_SUCCESS';
 export const ADD_MEMBER_FAILURE = 'ADD_MEMBER_FAILURE';
 
-//DELETE
-export const DELETE_MEMBER_REQUEST = 'DELETE_MEMBER_REQUEST';
-export const DELETE_MEMBER_SUCCESS = 'DELETE_MEMBER_SUCCESS';
-export const DELETE_MEMBER_FAILURE = 'DELETE_MEMBER_FAILURE';
+// DELETE
+export const DELETE_MEMBER_REQUEST = 'ADD_MEMBER_REQUEST';
+export const DELETE_MEMBER_SUCCESS = 'ADD_MEMBER_SUCCESS';
+export const DELETE_MEMBER_FAILURE = 'ADD_MEMBER_FAILURE';
 
-//UPDATE
-// export const UPDATE_MEMBER_REQUEST = 'UPDATE_MEMBER_REQUEST';
-// export const UPDATE_MEMBER_SUCCESS = 'UPDATE_MEMBER_SUCCESS';
-// export const UPDATE_MEMBER_FAILURE = 'UPDATE_MEMBER_FAILURE';
 
+
+// GET 
 export const getMembersRequest = () => { // before axios call request
   return {
     type: GET_MEMBERS_REQUEST
   }
 };
 
-export const getMembersSuccess = (response) => {// status code 200
+export const getMembersSuccess = (response) => { // status code 200
   return {
     type: GET_MEMBERS_SUCCESS,
     payload: response
@@ -38,44 +36,48 @@ export const getMembersFailure = (error) => {
   }
 };
 
-export const addMemberRequest = () => {
+
+// ADD
+export const addMemberRequest = () => { // before axios call request
   return {
-    type: ADD_MEMBER_REQUEST
+      type: ADD_MEMBER_REQUEST
   }
 }
 
-export const addMemberSuccess = (response) => {
+export const addMemberSuccess = (response) => { // status code 201
   return {
-    type: ADD_MEMBER_SUCCESS,
-    payload: response
+      type: ADD_MEMBER_SUCCESS,
+      payload: response
   }
 }
 
-export const addMemberFailure = (error) => {
+export const addMemberFailure = (error) => { // status code 4XX
   return {
-    type: ADD_MEMBER_FAILURE,
-    payload: error
+      type: ADD_MEMBER_FAILURE,
+      payload: error
   }
 }
 
-
-export const deleteMemberRequest = () => {
+// DELETE
+export const deleteMemberRequest = () => { // before axios call request
   return {
-    type: DELETE_MEMBER_REQUEST
+      type: DELETE_MEMBER_REQUEST
   }
 }
 
-export const deleteMemberSuccess = (response) => {
+export const deleteMemberSuccess = (response) => { // status code 201
   return {
-    type: DELETE_MEMBER_SUCCESS,
-    payload: response
+      type: DELETE_MEMBER_SUCCESS,
+      payload: response
   }
 }
-export const deleteMemberFailure = (error) => {
+
+export const deleteMemberFailure = (error) => { // status code 4XX
   return {
-    type: DELETE_MEMBER_FAILURE,
-    payload: error
+      type: DELETE_MEMBER_FAILURE,
+      payload: error
   }
+}
   // export const updateMemberRequest = () => {
   //   return {
   //       type: UPDATE_MEMBER_REQUEST
@@ -95,4 +97,3 @@ export const deleteMemberFailure = (error) => {
   //       payload: error
   //   }
   // }
-}

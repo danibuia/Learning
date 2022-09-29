@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Box } from "@mui/system";
 import { useDispatch } from "react-redux";
-
+import { getMembers } from "../../redux/actions/members/getMembers";
 
 const DeleteMembers = ({deleteMemberById, memberIdProps, setMemberIdProps}) => {
 
@@ -27,9 +27,10 @@ const DeleteMembers = ({deleteMemberById, memberIdProps, setMemberIdProps}) => {
       }}
     >
       <h3>Delete selected member</h3>
-      <button disabled={memberId.length > 0 ? false : true} style={{ color: "red" }} type="submit" variant="outlined" onClick={() =>  dispatch(deleteMemberById(memberId,accessToken))} >
-        Delete
-      </button>
+      <button  style={{ color: "red" }} type="submit" variant="outlined" onClick={() => dispatch(deleteMemberById(memberId, accessToken, ()=>dispatch(getMembers(accessToken))))
+      }>
+       Delete
+     </button>
       
     </Box>
   );

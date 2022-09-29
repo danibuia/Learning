@@ -1,14 +1,14 @@
 import {
-  GET_MEMBERS_FAILURE,
-  GET_MEMBERS_REQUEST,
-  GET_MEMBERS_SUCCESS,
-  ADD_MEMBER_REQUEST,
-  ADD_MEMBER_SUCCESS,
-  ADD_MEMBER_FAILURE,
-  DELETE_MEMBER_REQUEST,
-  DELETE_MEMBER_SUCCESS,
-  DELETE_MEMBER_FAILURE,
-} from "../../types/members/membersTypes";
+    GET_POSTS_REQUEST,
+    GET_POSTS_SUCCESS,
+    GET_POSTS_FAILURE,
+    ADD_POST_REQUEST,
+    ADD_POST_SUCCESS,
+  ADD_POST_FAILURE,
+  DELETE_POST_REQUEST,
+  DELETE_POST_FAILURE,
+  DELETE_POST_SUCCES,
+} from "../../types/posts/postsTypes";
 
 const initialState = {
   loading: false,
@@ -16,19 +16,19 @@ const initialState = {
     status: false,
     message: "",
   },
-  members: [],
-  member: {},
-  memberIdSelected: ''
+  posts: [],
+  post: {},
+  postIdSelected: "",
 };
 
 export const memberReducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_MEMBERS_REQUEST:
+    case GET_POSTS_REQUEST:
       return {
         ...state,
         loading: true,
       };
-    case GET_MEMBERS_SUCCESS:
+    case GET_POSTS_SUCCESS:
       return {
         ...state,
         loading: false,
@@ -36,9 +36,9 @@ export const memberReducer = (state = initialState, action) => {
           message: "",
           status: false,
         },
-        members: [...action?.payload],
+        posts: [...action?.payload],
       };
-    case GET_MEMBERS_FAILURE:
+    case GET_POSTS_FAILURE:
       return {
         ...state,
         loading: false,
@@ -47,22 +47,22 @@ export const memberReducer = (state = initialState, action) => {
           message: action?.payload?.message,
         },
       };
-    case ADD_MEMBER_REQUEST:
+    case ADD_POST_REQUEST:
       return {
         ...state,
         loading: true,
       };
-    case ADD_MEMBER_SUCCESS:
+    case ADD_POST_SUCCESS:
       return {
         ...state,
         loading: false,
         hasErrors: {
           status: false,
-          message: '',
+          message: "",
         },
-        member: action?.payload?.member
+        post: action?.payload?.post,
       };
-    case ADD_MEMBER_FAILURE:
+    case ADD_POST_FAILURE:
       return {
         ...state,
         loading: false,
@@ -71,21 +71,22 @@ export const memberReducer = (state = initialState, action) => {
           message: action?.payload,
         },
       };
-      case DELETE_MEMBER_REQUEST:
+    case DELETE_POST_REQUEST:
       return {
         ...state,
         loading: true,
       };
-    case DELETE_MEMBER_SUCCESS:
+    case DELETE_POST_SUCCES:
       return {
         ...state,
         loading: false,
         hasErrors: {
           status: false,
-          message: '',
-        }
+          message: "",
+        },
+        post: action?.payload?.post,
       };
-    case DELETE_MEMBER_FAILURE:
+    case DELETE_POST_FAILURE:
       return {
         ...state,
         loading: false,

@@ -21,9 +21,7 @@ const Navigation = () => {
     <nav className={"nav-container"}>
       <NavLink to="/home">Home</NavLink>
       <NavLink to="/admin">Admin</NavLink>
-      <NavLink to="/table">Table</NavLink>
       <NavLink to="/inputs">Inputs</NavLink>
-      <NavLink to="/addMember">AddMember</NavLink>
       <NavLink to="/blogs">Blogs</NavLink>
       <NavLink to="/project">Project</NavLink>
       <NavLink to="/editable">Editable</NavLink>

@@ -5,9 +5,8 @@ import {
   deleteMemberSuccess,
   deleteMemberFailure,
 } from "../../types/members/membersTypes";
-import {getMembers} from './getMembers.js'
 
-export const deleteMember = (memberId, token) => {
+export const deleteMember = (memberId, token, onFinish = () => undefined) => {
   return (dispatch) => {
     dispatch(deleteMemberRequest());
   axios
@@ -21,9 +20,10 @@ export const deleteMember = (memberId, token) => {
     })
     .catch((error) => {
       console.log(error);
-      return dispatch(deleteMemberFailure(error?.message));
+      dispatch(deleteMemberFailure(error?.message));
     })
     .finally(() => {
-      dispatch(getMembers(token));
+      onFinish();
+      console.log(token)
     });
 }};
