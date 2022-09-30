@@ -7,7 +7,6 @@ import { getPosts } from "../../../redux/actions/posts/getPosts";
 const DeletePosts = ({ deletePostById, postIdProps, setPostIdProps }) => {
 
   const dispatch = useDispatch();
-
   const [postId, setPostId] = useState("");
   const [accessToken, setAccessToken] = useState("");
 
@@ -33,10 +32,7 @@ const DeletePosts = ({ deletePostById, postIdProps, setPostIdProps }) => {
         style={{ color: "red" }}
         type="submit"
         variant="outlined"
-        onClick={() =>
-          dispatch(
-            deletePostById(postId, accessToken, () =>
-              dispatch(getPosts(accessToken))
+        onClick={() => dispatch( deletePostById(postId, accessToken, () => dispatch(getPosts(accessToken))
             )
           )
         }

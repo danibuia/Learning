@@ -4,24 +4,24 @@ import {
   addPostFailure,
   addPostRequest,
   addPostSuccess,
-} from "../../types/members/membersTypes";
+} from "../../types/posts/postsTypes";
 import { getPosts } from "./getPosts.js";
 
 export const addPost = (
   postTitle,
   postSubtitle,
   postDescription,
+  token,
 ) => {
   return (dispatch) => {
     dispatch(addPostRequest());
     axios
       .post(
-        `${baseUrl}/admins/add-member`,
+        `${baseUrl}/admins/add-post`,
         {
             postTitle: postTitle,
             postSubtitle: postSubtitle,
             postDescription: postDescription,
-            postPhoto:postPhoto,
         },
         {
           headers: {

@@ -5,9 +5,7 @@ import { Grid, Container } from "@mui/material";
 import DeletePosts from "./deletePost/Delete.Post";
 import { deletePost } from "../../redux/actions/posts/deletePosts";
 import PostCard from "./getPost/PostCard";
-import { getPosts } from "../../redux/actions/posts/getPosts";
 import AddPosts from './addPost/AddPost';
-
 
 
 const Posts = () => {
@@ -34,23 +32,6 @@ const Posts = () => {
           console.log("error: ", error);
         });
     }
-  };
-
-  const AddPost = (postSubtitle,postTitle, token) => {
-    axios
-      .post(`${baseUrl}/admins/add-post`, {
-        postTitle: postTitle,
-        postSubtitle: postSubtitle,
-      },{  headers: { Authorization: `Bearer ${token}` }})
-      .then((response) => {
-        console.log("response ", response.data);
-      })
-      .catch((error) => {
-        console.log("error: ", error);
-      })
-      .finally(() => {
-        getPosts(setUpdatedPosts, token);
-      });
   };
 
   const addPost = (

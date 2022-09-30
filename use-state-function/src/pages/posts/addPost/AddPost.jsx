@@ -1,40 +1,19 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { baseUrl } from "../../home/constants/Constants";
 import { Setter } from "../../../utils/Setter";
-
+import { useDispatch } from "react-redux";
+import { addPost } from "../../../redux/actions/posts/addPosts";
 function AddPosts() {
+  const dispatch = useDispatch();
+
+
   const [postTitle, setPostTitle] = useState("");
   const [postSubtitle, setPostSubtitle] = useState("");
+  const [postDescription, setPostDescription] = useState("");
   const [accessToken, setAccessToken] = useState("");
-  const onAddPost = () => {
-    axios
-      .post(
-        `${baseUrl}/admins/add-post/all`,
-        {
-          postTitle: postTitle,
-          postSubtitle: postSubtitle,
-        },
-        { headers: { Authorization: `Bearer ${accessToken}` } }
-      )
-      .then((response) => {
-        console.log("response ", response.data);
-        window.localStorage.setItem("token", response.data.accessToken);
-        // window.location.pathname = "/home";
-      })
-      .catch((error) => {
-        console.log("error: ", error);
-      });
-  };
-  const postPost = () => {
-    return accessToken.length > 0 ? onAddPost() : null;
-  };
+
   useEffect(() => {
     setAccessToken(window.localStorage.getItem("token"));
-    postPost();
-    // eslint-disable-next-line
   }, [accessToken]);
-
   return (
     <>
       <div>
@@ -54,20 +33,31 @@ function AddPosts() {
             placeholder="Title"
             onChange={(e) => Setter(e, setPostTitle, "postTitle")}
             value={postTitle?.length > 0 ? postTitle : ""}
-          />
-          <label htmlFor="LastName">Post Subtitle</label>
+          /
+          >
+          <label htmlFor="Post Title">Post Subtitle</label>
           <input
             type="text"
-            id="PostSubtitile"
-            name="PostSubtititle"
+            id="postSubtitile"
+            name="postSubtititle"
             placeholder="Subtitile"
             onChange={(e) => Setter(e, setPostSubtitle, "postSubtitle")}
             value={postSubtitle?.length > 0 ? postSubtitle : ""}
-             />
+          />
+          <label htmlFor="LastName">Post Description</label>
+          <input
+            type="text"
+            id="postDescription"
+            name="postDescription"
+            placeholder="postDescription"
+            onChange={(e) => Setter(e, setPostDescription, "postSubtitle")}
+            value={postDescription?.length > 0 ? postDescription : ""}
+          />
         </form>
-        <button type="button" onClick={onAddPost} disabled={false}>
-          Add post
-        </button>
+        <button type="submit" onClick={() => dispatch(addPost(postTitle, postSubtitle, postDescription, accessToken))} disabled={false}>
+        Add post
+      </button>
+   
       </div>
     </>
   );

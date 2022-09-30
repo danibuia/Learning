@@ -28,7 +28,8 @@ const DeleteMembers = ({deleteMemberById, memberIdProps, setMemberIdProps}) => {
       }}
     >
       <h3>Delete selected member</h3>
-      <button  style={{ color: "red" }} type="submit" variant="outlined" onClick={() => dispatch(deleteMemberById(memberId, accessToken, ()=>dispatch(getMembers(accessToken))))
+      <button  style={{ color: "red" }} type="submit" variant="outlined" 
+      onClick={() => dispatch(deleteMemberById(memberId, accessToken, ()=>dispatch(getMembers(accessToken))))
       }>
        Delete
      </button>

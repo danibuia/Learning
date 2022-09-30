@@ -10,7 +10,8 @@ import { getPosts } from "../../../redux/actions/posts/getPosts";
 import { useDispatch, useSelector } from "react-redux";
 import TablePagination from "@mui/material/TablePagination";
 
-const PostCard = () => {
+const PostCard = (props) => {
+  const { setPostIdProps } = props;
   const dispatch = useDispatch();
   const postsFromRedux = useSelector((state) => state.postReducer?.posts);
 
@@ -28,9 +29,10 @@ const PostCard = () => {
     setPage(0);
   };
 
-  function createData(postTitle, postAuthor, postSubtitle, postDescription) {
+ // eslint-disable-next-line
+ function a(postTitle, postAuthor, postSubtitle, postDescription) {
     return {
-      postTitle,
+      postTitle, 
       postAuthor,
       postSubtitle,
       postDescription,
@@ -67,11 +69,14 @@ const PostCard = () => {
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell>index</TableCell>
+              <TableCell align="right" >index</TableCell>
               <TableCell align="right">Title</TableCell>
               <TableCell align="right">Author</TableCell>
               <TableCell align="right">Subtitle</TableCell>
               <TableCell align="right">Likes</TableCell>
+              <TableCell align="right">Id</TableCell>
+            
+              
             </TableRow>
           </TableHead>
           <TableBody>
@@ -87,6 +92,8 @@ const PostCard = () => {
                 <TableCell align="right">{post.postAuthor}</TableCell>
                 <TableCell align="right">{post.postSubtitle}</TableCell>
                 <TableCell align="right">{post.likes}</TableCell>
+                <TableCell onCellClick={(details, event) => { event.target.checked === true ? setPostIdProps(details.row._id) : setPostIdProps('') }} align="right">{post._id}</TableCell>
+                
               </TableRow>
             ))}
           </TableBody>

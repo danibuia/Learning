@@ -52,7 +52,7 @@ export const addPostSuccess = (response) => {
   };
 };
 
-export const addMemberFailure = (error) => {
+export const addPostFailure = (error) => {
   // status code 4XX
   return {
     type: ADD_POST_FAILURE,
