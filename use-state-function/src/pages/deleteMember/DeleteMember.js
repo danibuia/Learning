@@ -5,9 +5,10 @@ import { getMembers } from "../../redux/actions/members/getMembers";
 
 const DeleteMembers = ({deleteMemberById, memberIdProps, setMemberIdProps}) => {
 
+  const dispatch = useDispatch();
   const [memberId, setMemberId] = useState('');
   const [accessToken, setAccessToken] = useState("");
-  const dispatch = useDispatch();
+  
   useEffect(() => {
     setAccessToken(window.localStorage.getItem("token"));
   }, [accessToken]);

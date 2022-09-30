@@ -1,13 +1,13 @@
 import {
-    GET_POSTS_REQUEST,
-    GET_POSTS_SUCCESS,
-    GET_POSTS_FAILURE,
-    ADD_POST_REQUEST,
-    ADD_POST_SUCCESS,
+  GET_POSTS_REQUEST,
+  GET_POSTS_SUCCESS,
+  GET_POSTS_FAILURE,
+  ADD_POST_REQUEST,
+  ADD_POST_SUCCESS,
   ADD_POST_FAILURE,
   DELETE_POST_REQUEST,
   DELETE_POST_FAILURE,
-  DELETE_POST_SUCCES,
+  DELETE_POST_SUCCESS,
 } from "../../types/posts/postsTypes";
 
 const initialState = {
@@ -21,7 +21,7 @@ const initialState = {
   postIdSelected: "",
 };
 
-export const memberReducer = (state = initialState, action) => {
+export const postReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_POSTS_REQUEST:
       return {
@@ -76,7 +76,8 @@ export const memberReducer = (state = initialState, action) => {
         ...state,
         loading: true,
       };
-    case DELETE_POST_SUCCES:
+
+    case DELETE_POST_SUCCESS:
       return {
         ...state,
         loading: false,

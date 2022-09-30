@@ -6,24 +6,25 @@ import {
   deletePostFailure,
 } from "../../types/posts/postsTypes";
 
-export const deleteMember = (postId, token, onFinish = () => undefined) => {
+export const deletePost = (postId, token, onFinish = () => undefined) => {
   return (dispatch) => {
     dispatch(deletePostRequest());
-  axios
-    .delete(`${baseUrl}/admins/delete-member/${postId}`, {
-      headers: { Authorization: `Bearer ${token}` },
-    })
-    .then((response) => {
-      console.log(response.data.message);
-      const data = response?.data;
-      dispatch(deletePostSuccess(data));
-    })
-    .catch((error) => {
-      console.log(error);
-      dispatch(deletePostFailure(error?.message));
-    })
-    .finally(() => {
-      onFinish();
-      console.log(token)
-    });
-}};
+    axios
+      .delete(`${baseUrl}/admins/delete-member/${postId}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((response) => {
+        console.log(response.data.message);
+        const data = response?.data;
+        dispatch(deletePostSuccess(data));
+      })
+      .catch((error) => {
+        console.log(error);
+        dispatch(deletePostFailure(error?.message));
+      })
+      .finally(() => {
+        onFinish();
+        console.log(token);
+      });
+  };
+};
