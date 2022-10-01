@@ -1,5 +1,4 @@
-import axios from "axios";
-import { baseUrl } from "../../../utils/constants/Constants";
+import { request } from "../../../utils/api.config/axios-config";
 import {
   getMembersFailure,
   getMembersRequest,
@@ -8,9 +7,8 @@ import {
 
 export const getMembers = (token) => {
   return (dispatch) => {
-    dispatch(getMembersRequest());
-    axios
-      .get(`${baseUrl}/admins/get-members/all`, {
+  dispatch(getMembersRequest())
+  request.get(`/admins/get-members/all`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

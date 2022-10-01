@@ -1,5 +1,4 @@
-import axios from "axios";
-import { baseUrl } from "../../../utils/constants/Constants";
+import { request } from "../../../utils/api.config/axios-config";
 import {
   getPostFailure,
   getPostRequest,
@@ -9,8 +8,8 @@ import {
 export const getPosts = (token) => {
   return (dispatch) => {
     dispatch(getPostRequest());
-    axios
-      .get(`${baseUrl}/admins/get-posts/all`, {
+   request
+      .get(`/admins/get-posts/all`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
