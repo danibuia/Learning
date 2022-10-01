@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { baseUrl } from "../../utils/constants/Constants";
+
+import { request } from "../../utils/api.config/axios-config";
 import { Grid, Container } from "@mui/material";
 import DeletePosts from "./deletePost/Delete.Post";
 import { deletePost } from "../../redux/actions/posts/deletePosts";
@@ -14,8 +14,8 @@ const Posts = () => {
 
   const getPost = (accessToken) => {
     if (accessToken) {
-      axios
-        .get(`${baseUrl}/admins/get-posts/all`, {
+     request
+        .get(`/admins/get-posts/all`, {
           headers: { Authorization: `Bearer ${accessToken}` },
         })
         .then((response) => {
@@ -41,9 +41,9 @@ const Posts = () => {
     postDescription,
     token
   ) => {
-    axios
+   request
       .post(
-        `${baseUrl}/admins/add-post`,
+        `/admins/add-post`,
         {
           postTitle: postTitle,
           postAuthor: postAuthor,
