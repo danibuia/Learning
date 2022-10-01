@@ -11,7 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import TablePagination from "@mui/material/TablePagination";
 
 const PostCard = (props) => {
-  const { setPostIdProps } = props;
+ 
   const dispatch = useDispatch();
   const postsFromRedux = useSelector((state) => state.postReducer?.posts);
 
@@ -20,7 +20,7 @@ const PostCard = (props) => {
 
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
-  const handleChangePage = (event, newPage) => {
+  const handleChangePage = (newPage) => {
     setPage(newPage);
   };
 
@@ -84,6 +84,7 @@ const PostCard = (props) => {
               <TableRow
                 row={posts ? posts : []}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                
               >
                 <TableCell component="th" scope="row">
                   {index}
@@ -92,7 +93,7 @@ const PostCard = (props) => {
                 <TableCell align="right">{post.postAuthor}</TableCell>
                 <TableCell align="right">{post.postSubtitle}</TableCell>
                 <TableCell align="right">{post.likes}</TableCell>
-                <TableCell onCellClick={(details, event) => { event.target.checked === true ? setPostIdProps(details.row._id) : setPostIdProps('') }} align="right">{post._id}</TableCell>
+                <TableCell align="right">{post._id}</TableCell>
                 
               </TableRow>
             ))}

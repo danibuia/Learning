@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { Box } from "@mui/system";
 import { useDispatch } from "react-redux";
-import { getPosts } from "../../../redux/actions/posts/getPosts";
+import { Input } from "@mui/material";
+import { Setter } from "../../../utils/Setter";
+import { deletePost } from "../../../redux/actions/posts/deletePosts";
 
 
-const DeletePosts = ({ deletePostById, postIdProps, setPostIdProps }) => {
+const DeletePosts = ({ postIdProps, setPostIdProps }) => {
 
   const dispatch = useDispatch();
   const [postId, setPostId] = useState("");
   const [accessToken, setAccessToken] = useState("");
+  const [deletePostById, setDeletePostById]=useState("")
 
   useEffect(() => {
     setAccessToken(window.localStorage.getItem("token"));
@@ -27,18 +30,29 @@ const DeletePosts = ({ deletePostById, postIdProps, setPostIdProps }) => {
         marginTop: "50px",
       }}
     >
-      <h3>Delete selected post</h3>
-      <button
-        style={{ color: "red" }}
-        type="submit"
-        variant="outlined"
-        onClick={() => dispatch( deletePostById(postId, accessToken, () => dispatch(getPosts(accessToken))
-            )
-          )
-        }
-      >
-        Delete
-      </button>
+      <form>
+      
+      <Input
+      type="text"
+      id="id"
+      name="id"
+      placeholder="baga aici"
+      onChange={(e)=> Setter(e, setDeletePostById,'deletePostById' )}
+      value={deletePostById?.length > 0 ? deletePostById : ''}
+      />
+        <h3>Delete selected post</h3>
+        <button
+          style={{ color: "red" }}
+          type="submit"
+          variant="outlined"
+          onClick={() => {dispatch(deletePost(deletePostById, accessToken))}}
+>
+              
+            
+  
+          Delete
+        </button>
+      </form>
     </Box>
   );
 };

@@ -32,7 +32,12 @@ export const addPost = (
       .then((response) => {
         console.log("response ", response.data);
         const data = response?.data;
-        dispatch(addPostSuccess(data));
+        setTimeout(() => {
+          console.log('data: ', data)
+          dispatch(addPostSuccess(data));
+        }, 2000)
+       
+
       })
       .catch((error) => {
         console.log("error: ", error);

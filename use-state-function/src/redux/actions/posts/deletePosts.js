@@ -10,7 +10,7 @@ export const deletePost = (postId, token, onFinish = () => undefined) => {
   return (dispatch) => {
     dispatch(deletePostRequest());
     axios
-      .delete(`${baseUrl}/admins/delete-member/${postId}`, {
+      .delete(`${baseUrl}/admins/delete-post/${postId}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {

@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Setter } from "../../../utils/Setter";
 import { useDispatch } from "react-redux";
 import { addPost } from "../../../redux/actions/posts/addPosts";
+// import LoadingButtons from "../../../components/LoadingButton";
 function AddPosts() {
   const dispatch = useDispatch();
-
 
   const [postTitle, setPostTitle] = useState("");
   const [postSubtitle, setPostSubtitle] = useState("");
@@ -33,8 +33,7 @@ function AddPosts() {
             placeholder="Title"
             onChange={(e) => Setter(e, setPostTitle, "postTitle")}
             value={postTitle?.length > 0 ? postTitle : ""}
-          /
-          >
+          />
           <label htmlFor="Post Title">Post Subtitle</label>
           <input
             type="text"
@@ -54,10 +53,17 @@ function AddPosts() {
             value={postDescription?.length > 0 ? postDescription : ""}
           />
         </form>
-        <button type="submit" onClick={() => dispatch(addPost(postTitle, postSubtitle, postDescription, accessToken))} disabled={false}>
-        Add post
-      </button>
-   
+        <button
+          type="submit"
+          onClick={() =>
+            dispatch(
+              addPost(postTitle, postSubtitle, postDescription, accessToken)
+            )
+          }
+          disabled={false}
+        >
+          dd
+        </button>
       </div>
     </>
   );
