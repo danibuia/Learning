@@ -9,7 +9,8 @@ import { deletePost } from "../../../redux/actions/posts/deletePosts";
 const DeletePosts = ({ postIdProps, setPostIdProps }) => {
 
   const dispatch = useDispatch();
-  const [setPostId] = useState("");
+  // eslint-disable-next-line
+  const [postId, setPostId] = useState("");
   const [accessToken, setAccessToken] = useState("");
   const [deletePostById, setDeletePostById]=useState("")
 
