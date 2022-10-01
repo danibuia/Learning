@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { baseUrl } from "../home/constants/Constants";
+import { baseUrl } from "../../utils/constants/Constants";
 import { Grid, Container } from "@mui/material";
 import DeletePosts from "./deletePost/Delete.Post";
 import { deletePost } from "../../redux/actions/posts/deletePosts";

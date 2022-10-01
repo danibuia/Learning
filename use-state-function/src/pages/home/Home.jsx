@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { baseUrl } from "./constants/Constants";
+import { baseUrl } from "../../utils/constants/Constants";
 
 const Home = () => {
   const [email, setEmail] = useState("");

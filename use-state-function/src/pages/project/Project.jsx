@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Grid } from "@mui/material";
 import Table from "../table/Table";
 import axios from "axios";
-import { baseUrl } from "../home/constants/Constants";
+import { baseUrl } from "../../utils/constants/Constants";
 import AddMember from "../addMember/AddMember";
 import DeleteMembers from "../deleteMember/DeleteMember";
 import { deleteMember } from "../../redux/actions/members/deleteMembers";

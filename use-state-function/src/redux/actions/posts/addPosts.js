@@ -1,5 +1,5 @@
 import axios from "axios";
-import { baseUrl } from "../../../pages/home/constants/Constants";
+import { baseUrl } from "../../../utils/constants/Constants";
 import {
   addPostFailure,
   addPostRequest,
