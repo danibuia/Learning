@@ -39,7 +39,9 @@ const DeleteMembers = ({
           dispatch(
             deleteMemberById(memberId, accessToken, () =>
               dispatch(getMembers(accessToken))
-            ))}
+            )
+          )
+        }
       >
         Delete
       </button>
@@ -47,4 +49,3 @@ const DeleteMembers = ({
   );
 };
 export default DeleteMembers;
-

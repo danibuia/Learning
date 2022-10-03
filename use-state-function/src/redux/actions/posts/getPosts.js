@@ -9,7 +9,7 @@ import {
 export const getPosts = (token) => {
   return (dispatch) => {
     dispatch(getPostRequest());
-  axios
+    axios
       .get(`${baseUrl}/admins/get-posts/all`, {
         headers: {
           Authorization: `Bearer ${token}`,

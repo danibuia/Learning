@@ -8,8 +8,9 @@ import {
 
 export const getMembers = (token) => {
   return (dispatch) => {
-  dispatch(getMembersRequest())
-  axios.get(`${baseUrl}/admins/get-members/all`, {
+    dispatch(getMembersRequest());
+    axios
+      .get(`${baseUrl}/admins/get-members/all`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

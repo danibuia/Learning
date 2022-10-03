@@ -1,5 +1,6 @@
 import axios from "axios";
 import { baseUrl } from "../../../utils/constants/Constants";
+
 import {
   addMemberFailure,
   addMemberRequest,
@@ -19,7 +20,8 @@ export const addMember = (
 ) => {
   return (dispatch) => {
     dispatch(addMemberRequest());
-    axios.add(
+    axios
+      .post(
         `${baseUrl}/admins/add-member`,
         {
           email: email,
