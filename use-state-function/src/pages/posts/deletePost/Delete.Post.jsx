@@ -49,9 +49,6 @@ const DeletePosts = ({ postIdProps, setPostIdProps }) => {
           variant="outlined"
           onClick={() => {dispatch(deletePost(deletePostById, accessToken))}}
 >
-              
-            
-  
           Delete
         </button>
       </form>
