@@ -1,4 +1,6 @@
-import { request } from "../../../utils/api.config/axios-config";
+import axios from "axios";
+import { baseUrl } from "../../../utils/constants/Constants";
+
 import {
   addMemberFailure,
   addMemberRequest,
@@ -18,8 +20,9 @@ export const addMember = (
 ) => {
   return (dispatch) => {
     dispatch(addMemberRequest());
-    request.add(
-        `/admins/add-member`,
+    axios
+      .post(
+        `${baseUrl}/admins/add-member`,
         {
           email: email,
           position: position,

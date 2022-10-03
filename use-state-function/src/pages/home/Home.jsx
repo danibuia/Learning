@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { request } from "../../utils/api.config/axios-config";
+import axios from "axios";
+import { baseUrl } from "../../utils/constants/Constants";
 
 const Home = () => {
   const [email, setEmail] = useState("");
@@ -15,8 +16,8 @@ const Home = () => {
     console.log("value is:", event.target.value);
   };
   const onLogin = () => {
-    request
-      .post(`/admins/login`, {
+    axios
+      .post(`${baseUrl}/admins/login`, {
         email: email,
         password: password,
       })
@@ -30,8 +31,8 @@ const Home = () => {
       });
   };
   const handleMembers = () => {
-    request
-      .get(`/admins/get-members/all`, {
+    axios
+      .get(`${baseUrl}/admins/get-members/all`, {
         headers: {
           Authorization: `token ${accessToken}`,
         },
