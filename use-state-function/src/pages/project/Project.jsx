@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Grid } from "@mui/material";
 import Table from "../table/Table";
+import axios from "axios";
+import { baseUrl } from "../../utils/constants/Constants";
 import AddMember from "../addMember/AddMember";
 import DeleteMembers from "../deleteMember/DeleteMember";
 import { deleteMember } from "../../redux/actions/members/deleteMembers";
-import { request } from "../../utils/api.config/axios-config";
 
 
 const Project = () => {
@@ -22,9 +23,9 @@ const Project = () => {
     avatar,
     token
   ) => {
-    request
+    axios
       .post(
-        `/admins/add-member`,
+        `${baseUrl}/admins/add-member`,
         {
           email: email,
           firstName: firstName,
@@ -49,8 +50,8 @@ const Project = () => {
 
   const handleMembers = (accessToken) => {
     if (accessToken) {
-      request
-        .get(`/admins/get-members/all`, {
+      axios
+        .get(`${baseUrl}/admins/get-members/all`, {
           headers: { Authorization: `Bearer ${accessToken}` },
         })
         .then((response) => {

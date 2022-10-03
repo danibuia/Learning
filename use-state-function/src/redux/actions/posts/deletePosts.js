@@ -1,6 +1,5 @@
 import axios from "axios";
 import { baseUrl } from "../../../utils/constants/Constants";
-
 import {
   deletePostRequest,
   deletePostSuccess,
