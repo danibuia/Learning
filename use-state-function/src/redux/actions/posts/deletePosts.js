@@ -1,5 +1,4 @@
-import axios from "axios";
-import { baseUrl } from "../../../utils/constants/Constants";
+import { request } from "../../../utils/api.config/axios-config";
 import {
   deletePostRequest,
   deletePostSuccess,
@@ -9,8 +8,8 @@ import {
 export const deletePost = (postId, token, onFinish = () => undefined) => {
   return (dispatch) => {
     dispatch(deletePostRequest());
-    axios
-      .delete(`${baseUrl}/admins/delete-post/${postId}`, {
+    request
+      .delete(`$/admins/delete-post/${postId}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {
