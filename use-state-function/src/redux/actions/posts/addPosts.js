@@ -1,4 +1,5 @@
-import { request } from "../../../utils/api.config/axios-config";
+import axios from "axios";
+import { baseUrl } from "../../../utils/constants/Constants";
 import {
   addPostFailure,
   addPostRequest,
@@ -14,9 +15,9 @@ export const addPost = (
 ) => {
   return (dispatch) => {
     dispatch(addPostRequest());
-    request
+    axios
       .post(
-        `/admins/add-post`,
+        `${baseUrl}/admins/add-post`,
         {
             postTitle: postTitle,
             postSubtitle: postSubtitle,

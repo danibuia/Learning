@@ -1,4 +1,5 @@
-import { request } from "../../../utils/api.config/axios-config";
+import axios from "axios";
+import { baseUrl } from "../../../utils/constants/Constants";
 import {
   deleteMemberRequest,
   deleteMemberSuccess,
@@ -8,8 +9,8 @@ import {
 export const deleteMember = (memberId, token, onFinish = () => undefined) => {
   return (dispatch) => {
     dispatch(deleteMemberRequest());
-  request
-    .delete(`/admins/delete-member/${memberId}`, {
+  axios
+    .delete(`${baseUrl}/admins/delete-member/${memberId}`, {
       headers: { Authorization: `Bearer ${token}` },
     })
     .then((response) => {
